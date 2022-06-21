@@ -3,20 +3,20 @@
 
 #  functions
 
-def not_blank(question):
+def not_blank(question, error_message)
   valid = False
 
-  while not valid:
+  while not valid
     response = input(question)
 
     if response != "":
       return response
     else:
-      print("Sorry - this cannot be blank")
+      print(error_message)
 
 #  --------Main Routine--------
 
-name = not_blank("Name: ")
+name = not_blank("Name: ", "Sorry, this cannot be blank - please enter your name")
 
 #  Set up dictionaries / lists needed to hold data
 
