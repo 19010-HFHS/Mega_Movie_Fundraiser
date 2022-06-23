@@ -19,9 +19,6 @@ def not_blank(question):
 
 #  --------Main Routine--------
 
-#  'name not blank' routine
-name = not_blank("Name: ")
-
 #  Set up dictionaries / lists needed to hold data
 
 #  Ask user if they have used the program before and show instructions if they haven't
@@ -29,7 +26,7 @@ name = not_blank("Name: ")
 #  Loop to get ticket details
 
   #  Get name (can't be blank)
-  
+name = not_blank("Name: ")
   #  Get age (between 12 and 130)
   
   #  Calculate ticket price
