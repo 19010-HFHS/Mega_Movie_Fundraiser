@@ -1,10 +1,10 @@
 #Functions
 
-def not_blank(question, error_message)
+def not_blank(question, error_message):
   valid = False
 
   while not valid
-    response = input(question)
+    response = input(question):
 
     if response != "":
       return response
