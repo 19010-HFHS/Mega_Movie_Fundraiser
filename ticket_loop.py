@@ -10,10 +10,10 @@ while name != "xxx" and count < MAX_TICKETS:
   "left".format(MAX_TICKETS - count))
 
 
-#  Get details...
-name = input("Name: ")
-count += 1
-print()
+  #  Get details...
+  name = input("Name: ")
+  count += 1
+  print()
 
 if count == MAX_TICKETS:
   print("You have sold all the available tickets!")
