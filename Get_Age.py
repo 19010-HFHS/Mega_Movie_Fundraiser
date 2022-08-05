@@ -13,7 +13,7 @@ def int_check(question, low_num, high_num):
     try:
       response = int(input(question))
       
-      if low_num < response < high_num:
+      if low_num <= response <= high_num:
         return response
       else:
         print(Error)
