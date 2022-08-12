@@ -10,9 +10,15 @@ def int_check(question):
 
     #ask user for number and check it is valid
     try:
-      response - int(input(question))
+      response = int(input(question))
+    
+      if response <= 0:
+        print(error)
+      else:
+        return response
 
-    if response <= 0:
+    #  if an integer is not entered, display an error
+    except ValueError:
       print(error)
-    else:
-      return response
+#  main routine goes here
+age = int_check("Age: ")
