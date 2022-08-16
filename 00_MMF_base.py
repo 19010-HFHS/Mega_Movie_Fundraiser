@@ -2,7 +2,10 @@
 
 
 #  functions
+count = 0
+MAX_TICKETS = 5
 
+    
 #  'name not blank' function
 #  check name not blank
 def not_blank(question):
@@ -29,7 +32,7 @@ def int_check(question):
     try:
       response = int(input(question))
       
-      if response <= 0
+      if response <= 0:
         print(Error)
       else:
         return response
@@ -37,36 +40,38 @@ def int_check(question):
     #  if an integer is not entered, display an error
     except ValueError:
       print(Error)
+
 #  main routine goes here
 #  --------Main Routine--------
 
 #  Set up dictionaries / lists needed to hold data
 
-def not_blank(question):
-
   #  Get name (can't be blank)
-  name = not_blank("Name: ")
-
+name = not_blank("Name: ")
   #  end the loop if the exit code is entered
-  if name == "xxx":
-    break
+while name == "xxx":
+  break
+#  Get age (between 12 and 130)
+age = int_check("Age: ")
+#  ckeck that age is valid...
+while age < 12:
+  print("Sorry, you are too young for this movie")
+  continue
+while age > 130:
+  print("That is very old, it seems there's been a mistake")
+  continue
 
-  count += 1
+count += 1
 
-
-  #  Get age (between 12 and 130)
-  age = int_check("Age: ", 12, 130)
-
-  #  ckeck that age is valid...
-  if age < 12:
-    print("Sorry, you are too young for this movie")
-    continue
-  elif age > 130:
-    print("That is very old, it seems there's been a mistake")
-    continue
-
-
+while name != "xxx" and count < MAX_TICKETS:
+  if count < 4: 
+    print("You have {} seats "
+    "left".format(MAX_TICKETS - count))
+  # warns the user only one seat is left
+  else:
+    print("*** THERE IS ONE SEAT LEFT!! ***")
 #  End of tickets loop
+
 if count == MAX_TICKETS:
   print("You have sold all the available tickets!")
 else: print("You have sold {} tickets. \n"
