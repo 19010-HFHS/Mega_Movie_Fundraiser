@@ -20,11 +20,11 @@ def not_blank(question):
     else:
       print("Sorry - this cannot be blank, please enter your name")
 
-#checks for an integer between 12 and 130
+#checks for an integer that is more than 0
 def int_check(question):
 
   #  error message
-  Error = "Please enter a whole number that is more than zero".format(question)
+  error = "Please enter a whole number that is more than zero"
   
   valid = False
   while not valid:
@@ -33,36 +33,16 @@ def int_check(question):
       response = int(input(question))
       
       if response <= 0:
-        print(Error)
+        print(error)
       else:
         return response
         
     #  if an integer is not entered, display an error
     except ValueError:
-      print(Error)
+      print(error)
 
 #  main routine goes here
 #  --------Main Routine--------
-
-#  Set up dictionaries / lists needed to hold data
-
-  #  Get name (can't be blank)
-name = not_blank("Name: ")
-  #  end the loop if the exit code is entered
-while name == "xxx":
-  break
-#  Get age (between 12 and 130)
-age = int_check("Age: ")
-#  ckeck that age is valid...
-while age < 12:
-  print("Sorry, you are too young for this movie")
-  continue
-while age > 130:
-  print("That is very old, it seems there's been a mistake")
-  continue
-
-count += 1
-
 while name != "xxx" and count < MAX_TICKETS:
   if count < 4: 
     print("You have {} seats "
@@ -70,7 +50,24 @@ while name != "xxx" and count < MAX_TICKETS:
   # warns the user only one seat is left
   else:
     print("*** THERE IS ONE SEAT LEFT!! ***")
-#  End of tickets loop
+#  Set up dictionaries / lists needed to hold data
+
+  #  Get name (can't be blank)
+  name = not_blank("Name: ")
+  #  end the loop if the exit code is entered
+  if name == "xxx":
+    break
+#  Get age (between 12 and 130)
+  age = int_check("Age: ")
+#  ckeck that age is valid...
+  if age < 12:
+    print("Sorry, you are too young for this movie")
+    continue
+  elif age > 130:
+    print("That is very old, it seems there's been a mistake")
+    continue
+
+count += 1
 
 if count == MAX_TICKETS:
   print("You have sold all the available tickets!")

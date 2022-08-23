@@ -11,7 +11,7 @@ while name != "xxx" and count < MAX_TICKETS:
     "left".format(MAX_TICKETS - count))
   
   # warns the user only one seat is left
-  else:
+  elif count == 1:
     print("*** THERE IS ONE SEAT LEFT!! ***")
   
   #  Get details...

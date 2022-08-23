@@ -1,11 +1,3 @@
-#  import statements
-
-
-#  functions
-count = 0
-MAX_TICKETS = 5
-
-    
 #  'name not blank' function
 #  check name not blank
 def not_blank(question):
@@ -20,11 +12,11 @@ def not_blank(question):
     else:
       print("Sorry - this cannot be blank, please enter your name")
 
-#checks for an integer between 12 and 130
+#checks for an integer that is more than 0
 def int_check(question):
 
   #  error message
-  Error = "Please enter a whole number that is more than zero".format(question)
+  error = "Please enter a whole number that is more than zero"
   
   valid = False
   while not valid:
@@ -33,53 +25,53 @@ def int_check(question):
       response = int(input(question))
       
       if response <= 0:
-        print(Error)
+        print(error)
       else:
         return response
         
     #  if an integer is not entered, display an error
     except ValueError:
-      print(Error)
+      print(error)
+# ********** Main Routine ************
 
-#  main routine goes here
-#  --------Main Routine--------
+# Set up dictionaries / lists needed to hold data
 
-#  Set up dictionaries / lists needed to hold data
+# Ask user if they have used the program before & show instructions if necessary
 
-  #  Get name (can't be blank)
-name = not_blank("Name: ")
-  #  end the loop if the exit code is entered
-while name == "xxx":
-  break
-#  Get age (between 12 and 130)
-age = int_check("Age: ")
-#  ckeck that age is valid...
-while age < 12:
-  print("Sorry, you are too young for this movie")
-  continue
-while age > 130:
-  print("That is very old, it seems there's been a mistake")
-  continue
+# Loop to get ticket details
+# start of loop
 
-count += 1
+# initialise loop so that it runs at least once
+name = ""
+count = 0
+MAX_TICKETS = 5
 
 while name != "xxx" and count < MAX_TICKETS:
-  if count < 4: 
-    print("You have {} seats "
-    "left".format(MAX_TICKETS - count))
+#  Set up dictionaries / lists needed to hold data
+    if count < 4: 
+      print("You have {} seats "
+      "left".format(MAX_TICKETS - count))
   # warns the user only one seat is left
-  else:
-    print("*** THERE IS ONE SEAT LEFT!! ***")
-#  End of tickets loop
+    else:
+      print("*** THERE IS ONE SEAT LEFT!! ***")
+      
+  #  Get name (can't be blank)
+    name = not_blank("Name: ")
+  #  end the loop if the exit code is entered
+    if name == "xxx":
+      break
+#  Get age (between 12 and 130)
+    age = int_check("Age: ")
+#  ckeck that age is valid...
+    if age < 12:
+      continue
+    elif age > 130:
+      print("That is very old, it seems there's been a mistake")
+      continue
+
+    count += 1
 
 if count == MAX_TICKETS:
   print("You have sold all the available tickets!")
 else: print("You have sold {} tickets. \n"
  "there are {} seats still available".format(count, MAX_TICKETS - count))
-
-  
-
-
-  #  Calculate ticket price
-
-  #  Loop to ask for snacks
