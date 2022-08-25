@@ -13,7 +13,7 @@ while name != "xxx":
 
   if age < 16:
     ticket_price = 7.5
-  elif age <= 65
+  elif age <= 65:
     ticket_price = 6.5
   else:
     ticket_price = 10.5
@@ -23,4 +23,4 @@ while name != "xxx":
 
   print("{} : ${:.2f}".format(name, ticket_price))
 
-print("Profit from Tickets: ${:.sf}".format(profit))
+print("Profit from Tickets: ${:.2f}".format(profit))
