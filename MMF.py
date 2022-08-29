@@ -75,7 +75,7 @@ while name != "xxx" and ticket_count < MAX_TICKETS:
 
     if age < 16:
       ticket_price = 7.5
-    elif age <= 65:
+    elif age >= 65:
       ticket_price = 6.5
     else:
       ticket_price = 10.5
@@ -85,7 +85,7 @@ while name != "xxx" and ticket_count < MAX_TICKETS:
     ticket_sales += ticket_price
 #  end of tickets loop
 #  calculate ticket profit...
-ticcket_profit = ticket_sales - (5 * ticket_count)
+ticket_profit = ticket_sales - (5 * ticket_count)
 print("Ticket Profit: ${:.2f}".format(ticket_profit))
 
 #  tell the user if they have unsold tickets
