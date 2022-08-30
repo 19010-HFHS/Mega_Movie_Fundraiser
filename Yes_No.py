@@ -17,3 +17,8 @@ def yes_no(question):
       print(error)
 
 #  Main routine goes here
+
+for item in range(0, 6):
+  want_snacks = yes_no("Do you want snacks? ")
+  print("Answer OK, you said:", want_snacks)
+  print()
