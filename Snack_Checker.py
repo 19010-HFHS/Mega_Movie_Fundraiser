@@ -19,19 +19,18 @@ for item in range(0, 3):
   for var_list in valid_snacks:
 
     #  if the snack is in one of the lists, return the full name of the item
-  if desired_snack in var_list:
+    if desired_snack in var_list:
 
     #  Get full name of snack and put it in the title case so it looks nice when outputed
-    snack = var_list[0].title()
-    snack_ok = "yes"
-    break
-
+      snack = var_list[0].title()
+      snack_ok = "yes"
+      break
   #  if the chosen snack is not valid, set snack_ok to no
-  else:
-    snack_ok = "no"
+    else:
+      snack_ok = "no"
 
 #  if the snack is not ok - ask question again.
-if  snack_ok == "yes":
-  print("Snack Choice: ", snack)
-else:
-  print("invalid choice")
+  if  snack_ok == "yes":
+    print("Snack Choice: ", snack)
+  else:
+    print("invalid choice")
