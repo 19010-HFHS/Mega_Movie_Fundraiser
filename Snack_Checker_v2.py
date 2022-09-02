@@ -18,10 +18,10 @@ def string_check(choice, options):
       is_valid = "no"
 
 #  if the snack is not OK - ask question again.
-if is_valid == "yes":
-  return chosen
-else:
-  return "invalid choice"
+  if is_valid == "yes":
+    return chosen
+  else:
+    return "invalid choice"
 
 
 
