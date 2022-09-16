@@ -87,7 +87,8 @@ if check_snack == "Yes":
   if amount >= 5:
     print("Sorry - we have a four snack maximum")
     snack_choice = "invalid choice"
-
+  elif amount = float():
+    snack_choice = "invalid choice"
   #  add snack AND amount to list...
   amount_snack = "{} {}".format(amount, snack_choice)
 
