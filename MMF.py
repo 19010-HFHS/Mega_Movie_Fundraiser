@@ -45,7 +45,7 @@ yes_no = [
 #  holds the snack order for a single user
 snack_order = []
 
-#  holds the variable for the chosen snack for exit code
+#  holds the variable for the desired snack for exit code
 desired_snack = ""
 
 check_snack = "invalid choice"
@@ -87,9 +87,8 @@ else:
     print(item)
 
 
-
-#  loop six times to make testing quicker
 while desired_snack != "xxx" and check_snack != "No":
+#  loop six times to make testing quicker
   for item in range(0, 6):
     #  ask user for desired snack and put it in lowercase
     desired_snack = input("Snack: ").lower()

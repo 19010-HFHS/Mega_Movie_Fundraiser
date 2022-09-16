@@ -1,4 +1,4 @@
-
+import re
 
 #  Function goes here
 def string_check(choice, options):
@@ -22,13 +22,13 @@ def string_check(choice, options):
     return chosen
   else:
     return "invalid choice"
+    
 
 
-
-
+#  Regular expression to find if item starts with a number
+number_regex = "^[1-9]"
 
 #  valid snacks holds list of all snacks. Each item in valid snacks is a list with valid options for each snack <full name, letter code (a - e), and possible abbreviations etc>
-
 valid_snacks = [
   ["popcorn", "p", "corn", "a"],
   ["M&M's", "m&m's", "mms", "m", "b"],
@@ -36,24 +36,26 @@ valid_snacks = [
   ["water", "w", "d"]
 ]
 
-#  valid options for yes / no questions
+#valid options for yes / no questions
 yes_no = [
   ["yes", "y"],
   ["no", "n"]
 ]
 
-#  holds the snack order for a single user
+#  holds snack order for a single user
 snack_order = []
 
-#  holds the variable for the desired snack for the exit code
+#  holds variable for desired snack for the exit code
 desired_snack = ""
 
+#  ask user if they want a snack
 check_snack = "invalid choice"
 while check_snack == "invalid choice":
   want_snack = input("Do you want to order snacks? ").lower()
   check_snack = string_check(want_snack, yes_no)
 
 #If they say yes, ask what snacks they want
+
 if check_snack == "Yes":
 
   while desired_snack != "xxx":
@@ -63,18 +65,37 @@ if check_snack == "Yes":
     if desired_snack == "xxx":
       break
 
+  
+    #  if item has a number, seperate it into two (number / item)
+    if re.match(number_regex, desired_snack):
+      amount = int(desired_snack[0])
+      desired_snack = desired_snack[1:]
+
+
+    else:
+      #  if item does not have a number in front, set number to 1
+      amount = 1
+      desired_snack = desired_snack
+
+    #  remove white space around snack
+    desired_snack = desired_snack.strip()
+    
     #  check if snack is valid
     snack_choice = string_check(desired_snack, valid_snacks)
-    print("Snack Choice: ", snack_choice)
 
-    # add snack to list...
+  #  check snack amount is valid (less than 5)
+  if amount >= 5:
+    print("Sorry - we have a four snack maximum")
+    snack_choice = "invalid choice"
+
+  #  add snack AND amount to list...
+  amount_snack = "{} {}".format(amount, snack_choice)
 
     #check that snack is not the exit code before adding
-  
-    if snack_choice != "xxx" and snack_choice != "invalid choice":
-      snack_order.append(snack_choice)
+  if snack_choice != "xxx" and snack_choice != "invalid choice":
+    snack_order.append(snack_choice)
 
-
+ 
 #  Show snack orders
 print()
 if len(snack_order) == 0:
@@ -85,6 +106,7 @@ else:
 
   for item in snack_order:
     print(item)
+
 
 #  Prevents following loop from running if exit code is recieved
 while desired_snack != "xxx" and check_snack != "No":
