@@ -33,10 +33,11 @@ valid_snacks = [
   ["popcorn", "p", "corn", "a"],
   ["M&M's", "m&m's", "mms", "m", "b"],
   ["pita chips", "chips", "pc", "pita", "c"],
-  ["water", "w", "d"]
+  ["water", "w", "d"],
+  ["orange juice", "oj", "e"]
 ]
 
-#valid options for yes / no questions
+#  valid options for yes / no questions
 yes_no = [
   ["yes", "y"],
   ["no", "n"]
@@ -54,11 +55,14 @@ while check_snack == "invalid choice":
   want_snack = input("Do you want to order snacks? ").lower()
   check_snack = string_check(want_snack, yes_no)
 
-#If they say yes, ask what snacks they want
+#  If they say yes, ask what snacks they want
 
 if check_snack == "Yes":
 
   while desired_snack != "xxx":
+
+  snack_row = []
+    
     #  ask user for desired snack and put it in lowercase
     desired_snack = input("Snack: ").lower()
 
@@ -84,17 +88,20 @@ if check_snack == "Yes":
     snack_choice = string_check(desired_snack, valid_snacks)
 
   #  check snack amount is valid (less than 5)
-  if amount >= 5:
-    print("Sorry - we have a four snack maximum")
-    snack_choice = "invalid choice"
-  elif amount = float():
-    snack_choice = "invalid choice"
+    if amount >= 5:
+      print("Sorry - we have a four snack maximum")
+      snack_choice = "invalid choice"
+    elif amount == float():
+      print("Please enter a valid  number")
+      snack_choice = "invalid choice"
   #  add snack AND amount to list...
-  amount_snack = "{} {}".format(amount, snack_choice)
+  
+    snack_row.append(amount)
+    snack_row.append(snack_choice)
 
-    #check that snack is not the exit code before adding
+  #  check that snack is not the exit code before adding
   if snack_choice != "xxx" and snack_choice != "invalid choice":
-    snack_order.append(snack_choice)
+    snack_order.append(snack_row)
 
  
 #  Show snack orders
@@ -105,9 +112,7 @@ if len(snack_order) == 0:
 else:
   print("Snacks Ordered: ")
 
-  for item in snack_order:
-    print(item)
-
+print(snack_order)
 
 #  Prevents following loop from running if exit code is recieved
 while desired_snack != "xxx" and check_snack != "No":
