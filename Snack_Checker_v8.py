@@ -61,7 +61,7 @@ if check_snack == "Yes":
 
   while desired_snack != "xxx":
 
-    snack_row = []
+  snack_row = []
     
     #  ask user for desired snack and put it in lowercase
     desired_snack = input("Snack: ").lower()
@@ -88,16 +88,16 @@ if check_snack == "Yes":
     snack_choice = string_check(desired_snack, valid_snacks)
 
   #  check snack amount is valid (less than 5)
-  if amount >= 5:
-    print("Sorry - we have a four snack maximum")
-    snack_choice = "invalid choice"
-  elif amount == float():
-    print("Please enter a valid number")
-    snack_choice = "invalid choice"
+    if amount >= 5:
+      print("Sorry - we have a four snack maximum")
+      snack_choice = "invalid choice"
+    elif amount == float():
+      print("Please enter a valid  number")
+      snack_choice = "invalid choice"
   #  add snack AND amount to list...
   
-  snack_row.append(amount)
-  snack_row.append(snack_choice)
+    snack_row.append(amount)
+    snack_row.append(snack_choice)
 
   #  check that snack is not the exit code before adding
   if snack_choice != "xxx" and snack_choice != "invalid choice":
@@ -112,7 +112,7 @@ if len(snack_order) == 0:
 else:
   print("Snacks Ordered: ")
 
- print(snack_order)
+print(snack_order)
 
 #  Prevents following loop from running if exit code is recieved
 while desired_snack != "xxx" and check_snack != "No":
